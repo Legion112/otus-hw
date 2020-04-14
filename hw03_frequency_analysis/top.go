@@ -3,6 +3,8 @@ import (
 	"sort"
 )
 
+const Max = 10
+
 func Top10(input string) []string { // Place your code here
 	if len(input) == 0 {
 		return make([]string, 0)
@@ -36,13 +38,11 @@ func Top10(input string) []string { // Place your code here
 	}
 
 	sort.Slice(words, func(i, j int) bool {
-		countLeft, _ := top[words[i]]
-		countRight, _ := top[words[j]]
-		return countLeft > countRight
+		return top[words[i]] > top[words[j]]
 	})
 	min := len(words)
-	if min > 10 {
-		min = 10
+	if min > Max {
+		min = Max
 	}
 	output := words[0:min]
 	return output
