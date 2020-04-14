@@ -2,11 +2,12 @@ package hw03_frequency_analysis //nolint:golint,stylecheck
 import (
 	"sort"
 )
+
 func Top10(input string) []string { // Place your code here
 	if len(input) == 0 {
 		return make([]string, 0)
 	}
-	var start int = 0
+	var start = 0
 	top := make(map[string]int)
 	words := make([]string, 0)
 
@@ -26,7 +27,7 @@ func Top10(input string) []string { // Place your code here
 		}
 	}
 	if start < len(input) {
-		word := input[start:len(input)]
+		word := input[start:]
 		value, ok := top[word]
 		top[word] = value + 1
 		if !ok {
